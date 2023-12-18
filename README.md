@@ -1,4 +1,4 @@
-![](./logo.png =150x150)
+<img src="./logo.png" height="100px">
 
 # CERMatch
 
