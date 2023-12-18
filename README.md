@@ -1,4 +1,7 @@
-<img src="./logo.png" height="100px">
+<p align="center">
+  <img src="./logo.png" alt="CERMatch Logo" height="250px"/>
+</p>
+
 
 # CERMatch
 
