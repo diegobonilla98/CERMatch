@@ -28,8 +28,13 @@ CERMatch operates in several steps:
 
 - **Scoring:** The algorithm calculates the percentages of matched, errored, invented, and missed words. These values are then used to compute a composite score based on provided weights, giving a holistic view of the OCR's accuracy.
 
-- **Output:** CERMatch returns a dictionary with the composite score and ratios of each word category. Optionally, it can also return lists of words in each category for a more detailed analysis.
+- **Output:** CERMatch returns a dictionary with the composite score and ratios of each word category. Optionally, it can also return lists of words in each category for a more detailed analysis. The entries in the output dictionary are as follows:
 
+    - **composite_score:** The composite score based on the provided weights.
+    - **ratio_matched:** The percentage of words that match between the predicted and ground truth texts.
+    - **ratio_errors:** The percentage of words that contain errors in the predicted text.
+    - **ratio_invented:** The percentage of words that are invented in the predicted text.
+    - **ratio_missed:** The percentage of words that are missed in the predicted text.
 
 ## Installation
 
@@ -49,10 +54,25 @@ from cermatch import calculateCERMatch
 text_pred = "Hello, my namo is me Diego Bonilla"
 text_gt = "Hello, my name is Diego Bonilla S."
 
-result = calculateCERMatch(text_pred, text_gt)
+# cer_threshold: CER threshold for considering a match.
+# composite_weights: Weights for matched, errors, invented, missed words.
+result = calculateCERMatch(
+  text_pred, text_gt,
+  cer_threshold=0.5,
+  composite_weights=(0.5, 0.2, 0.15, 0.15)
+)
 print(result)
 
-# Output: {'composite_score': 0.7642857142857142, 'ratio_matched': 0.7142857142857143, 'ratio_errors': 0.14285714285714285, 'ratio_invented': 0.14285714285714285, 'ratio_missed': 0.14285714285714285}
+"""
+Output:
+{
+  'composite_score': 0.7642857142857142,
+  'ratio_matched': 0.7142857142857143,
+  'ratio_errors': 0.14285714285714285,
+  'ratio_invented': 0.14285714285714285,
+  'ratio_missed': 0.14285714285714285
+}
+"""
 ```
 
 ## LICENSE
