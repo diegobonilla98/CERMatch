@@ -79,4 +79,12 @@ Output:
 
 CERMatch is licensed under the MIT License - see the LICENSE file for details.
 
+```
+@misc{bonilla2024cermatch,
+  title  = {CER Match: a modern metric for OCRs},
+  author = {Bonilla Salvador, Diego},
+  year   = {2025},
+  url    = {https://github.com/diegobonilla98/CERMatch}
+}
+```
 
